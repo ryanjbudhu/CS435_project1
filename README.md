@@ -4,18 +4,18 @@
     * The left subtree (all of the nodes coming from and including the left child) must be smaller than the root node
     * The right subtree (all of the nodes coming from and including the right child) must be greater than the root node
   + b) Where n = number of nodes in the BST
- i.	Insert –	O(n)
+  - i.	Insert –	O(n)
     * Worst case is when BST is a linked-list
- ii.	Delete –	O(n)
+  - ii.	Delete –	O(n)
     * Worst case is when BST is a linked-list
- iii.	Find-next –	O(1)
-    *	Constant time with pointers that are saved (node.left, node.right)
-  iv. Find-prev –	O(1)
-    *	Constant time with pointer that is saved (node.parent)
-  v. Find-min –	O(n)
-  *	Must traverse to left most node
-  vi. Find-max –	O(n)
-  *	Must traverse to right most node
+  - iii. Find-next –	O(1)
+    * Constant time with pointers that are saved (node.left, node.right)
+  - iv. Find-prev –	O(1)
+    * Constant time with pointer that is saved (node.parent)
+  - v. Find-min –	O(n)
+    * Must traverse to left most node
+  - vi. Find-max –	O(n)
+    * Must traverse to right most node
   +	 
   +	 
 	
