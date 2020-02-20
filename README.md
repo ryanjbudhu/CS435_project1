@@ -1,5 +1,5 @@
 1. Binary Search Tree
-  + a)	 
+  + a) Properties of a BST.
     * Each node has a maximum of two children
     * The left subtree (all of the nodes coming from and including the left child) must be smaller than the root node
     * The right subtree (all of the nodes coming from and including the right child) must be greater than the root node
