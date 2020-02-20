@@ -1,9 +1,9 @@
-1.	 
-+	 
+1. Binary Search Tree
+  + a)	 
     * Each node has a maximum of two children
     * The left subtree (all of the nodes coming from and including the left child) must be smaller than the root node
     * The right subtree (all of the nodes coming from and including the right child) must be greater than the root node
-+ Where n = number of nodes in the BST
+  + b) Where n = number of nodes in the BST
  i.	Insert –	O(n)
     * Worst case is when BST is a linked-list
  ii.	Delete –	O(n)
