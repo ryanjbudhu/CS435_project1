@@ -7,4 +7,4 @@ def getRandArray(n):
 			arr.append(num)
 	return arr
 
-print(getRandArray(10))
+#print(getRandArray(10))
