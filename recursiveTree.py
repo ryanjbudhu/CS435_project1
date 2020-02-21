@@ -32,20 +32,26 @@ def deleteRec(root, value):
 			tmp = root.right
 			root = None
 			return tmp
-			  
+
 		elif root.right == None:
 			tmp = root.left
 			root = None
 			return tmp
-			
+
 		tmp = findMinRec(root.right)
 		root.val = tmp.val
 		root.right = deleteRec(root.right, tmp.val)
 	return root
 def findNextRec(node):
-	pass
+	if node.right != None:
+		return findMinRec(node.right)
+	
+	
 def findPrevRec(node):
-	pass
+	if node.left != None:
+		return findMaxRec(node.left)
+	
+	
 def findMinRec(root):
 	if root==None:
 		return MAXINT
@@ -76,10 +82,13 @@ root = Node(arr[0])
 for i in arr[1:]:
 	insertRec(root, Node(i))
 
-printout(root)
-print('Max:',findMaxRec(root))
-print('Min:',findMinRec(root))
-deleteRec(root, findMinRec(root))
-
+print(arr)
+print('Root:',root.val)
+maxNode = findMaxRec(root)
+minNode = findMinRec(root)
+print('Max:',maxNode.val)
+print('Min:',minNode.val)
+print('Next:',findNextRec(minNode).val)
+print('Prev:',findPrevRec(maxNode).val)
 print()
 printout(root)

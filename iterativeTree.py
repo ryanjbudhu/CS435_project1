@@ -7,9 +7,45 @@ class Node:
 		self.parent = parent
 
 def insertIter(root, val):
-	pass
+	if root is None:
+		root = Node(val)
+		return
+	else:
+		cur = root
+		while cur != None:
+			if cur.val < val:
+				if cur.right == None:
+					cur.right = Node(val, cur)
+					return
+				else:
+					cur = cur.right
+			else:
+				if cur.left == None:
+					cur.left = Node(val, cur)
+					return
+				else:
+					cur = cur.left
 def deleteIter(root, value):
-	pass
+	if root == None:
+		return
+	cur = root
+	while cur != None:
+		if value < cur.val:
+			cur = cur.left
+		elif value > cur.val:
+			cur = cur.right
+		else:
+			if cur.left == None:
+				tmp = cur.right
+				cur = None
+				continue
+			elif cur.right == None:
+				tmp = cur.right
+				cur = None
+				continue
+			tmp = findMinIter(cur.right)
+			cur.val = tmp.val
+			cur = cur.right
 	
 def findNextIter(node):
 	if node.right != None:
@@ -60,6 +96,10 @@ for i in arr[1:]:
 	insertIter(root, i)
 
 print(arr)
+printout(root)
+print()
+deleteIter(root, root.left.val)
+printout(root)
 print('Root:',root.val)
 maxNode = findMaxIter(root)
 minNode = findMinIter(root)
