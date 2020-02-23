@@ -45,30 +45,33 @@ def deleteRec(root, value):
 def findNextRec(node):
 	if node.right != None:
 		return findMinRec(node.right)
-	
+	else:
+		return node.val
 	
 def findPrevRec(node):
 	if node.left != None:
 		return findMaxRec(node.left)
-	
+	else:
+		return node.val
 	
 def findMinRec(root):
 	if root==None:
-		return MAXINT
-	res = root.val
+		return Node(MAXINT)
+	res = root
 	newres = findMinRec(root.left)
-	if newres < res:
+	if newres.val < res.val:
 		res = newres
 	return res
 def findMaxRec(root):
 	if root==None:
-		return -MAXINT
-	res = root.val
+		return Node(-MAXINT)
+	res = root
 	newres = findMaxRec(root.right)
-	if newres > res:
+	if newres.val > res.val:
 		res = newres
 	return res
 
+#Used to pretty print the tree in preorder
 def printout(root):
 	if root == None:
 		return
@@ -76,12 +79,13 @@ def printout(root):
 	print(root.val)
 	printout(root.right)
 
-
+#Create and fill out the tree
 arr = getRandArray(10)
 root = Node(arr[0])
 for i in arr[1:]:
 	insertRec(root, Node(i))
 
+#Print out results of each function
 print(arr)
 print('Root:',root.val)
 maxNode = findMaxRec(root)
