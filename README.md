@@ -24,7 +24,7 @@
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
 		* Input:
-		``[2428, 3147, 3222, 30, 7195, 5620, 5934, 2976, 1245, 5021]``
+		```[2428, 3147, 3222, 30, 7195, 5620, 5934, 2976, 1245, 5021]```
 		  * Output:
 			```
 			Root: 2428
@@ -53,7 +53,7 @@
 			```
 	- iv. 
 	- v. I use a max/min integer to check the minimum and maximum of the tree. Input must be greater than/less than for algorithm to work.
-	- vi. ``IterativeTree.py``
+	- vi. ``iterativeTree.py``
 	- vii. Use a different way of comparing for max and min in the tree.
 	
 ### 2. Sort it!
