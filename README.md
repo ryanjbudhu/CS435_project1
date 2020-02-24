@@ -1,5 +1,5 @@
 # Ryan Budhu
-## Section 004
+  ## Section 004
 ---
 ### 1. Binary Search Tree
   + a) Properties of a BST.
@@ -12,9 +12,9 @@
     - ii. Delete –	O(n)
       * Worst case is when BST is a linked-list
     - iii. Find-next –	O(n)
-      * Constant time with pointers that are saved (node.left, node.right)
+      * Worst case backtrack all nodes.
     - iv. Find-prev –	O(n)
-      * Must traverse 
+      * Worst case backtrack all nodes.
     - v. Find-min –	O(n)
       * Must traverse to left most node
     - vi. Find-max –	O(n)
@@ -40,7 +40,7 @@
 	- vi. ``recusiveTree.py``
 	- vii. Use a different way of comparing for max and min in the tree.
   + d) [iterativeTree.py ✓]
-	- i. Create functions of a Binary Search Tree that implement the algorithms recursively.
+	- i. Create functions of a Binary Search Tree that implement the algorithms iteravely.
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
 		* Input:
