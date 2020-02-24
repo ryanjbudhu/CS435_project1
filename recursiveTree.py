@@ -1,10 +1,11 @@
 from getRandArray import getRandArray
 MAXINT = 999999
 class Node:
-	def __init__(self, val):
+	def __init__(self, val, parent=None):
 		self.val = val
 		self.left = None
 		self.right = None
+		self.parent = None
 
 def insertRec(root, node):
 	if root is None:
@@ -13,11 +14,13 @@ def insertRec(root, node):
 		if root.val < node.val:
 			if root.right == None:
 				root.right = node
+				root.right.parent = root
 			else:
 				insertRec(root.right, node)
 		else:
 			if root.left == None:
 				root.left = node
+				root.left.parent = root
 			else:
 				insertRec(root.left, node)
 def deleteRec(root, value):
@@ -42,17 +45,27 @@ def deleteRec(root, value):
 		root.val = tmp.val
 		root.right = deleteRec(root.right, tmp.val)
 	return root
-def findNextRec(node):
+def findNextRec(start, node):
 	if node.right != None:
 		return findMinRec(node.right)
-	else:
-		return node.val
+	prnt = node.parent
+	while prnt != None:
+		if node != prnt.right:
+			break
+		node = prnt
+		prnt = prnt.parent
+	return prnt
 	
-def findPrevRec(node):
+def findPrevRec(start, node):
 	if node.left != None:
 		return findMaxRec(node.left)
-	else:
-		return node.val
+	prnt = node.parent
+	while prnt != None:
+		if node != prnt.left:
+			break
+		node = prnt
+		prnt = prnt.parent
+	return prnt
 	
 def findMinRec(root):
 	if root==None:
@@ -81,7 +94,7 @@ def printout(root):
 
 #Create and fill out the tree
 arr = getRandArray(10)
-root = Node(arr[0])
+root = Node(arr[0], None)
 for i in arr[1:]:
 	insertRec(root, Node(i))
 
@@ -92,7 +105,13 @@ maxNode = findMaxRec(root)
 minNode = findMinRec(root)
 print('Max:',maxNode.val)
 print('Min:',minNode.val)
-print('Next:',findNextRec(minNode).val)
-print('Prev:',findPrevRec(maxNode).val)
+nextNode = findNextRec(minNode, minNode)
+print('Next:',nextNode.val)
+nextNode2 = findNextRec(nextNode, nextNode)
+print('Next2:',nextNode2.val)
+prevNode = findPrevRec(maxNode,maxNode)
+print('Prev:',prevNode.val)
+prevNode2 = findPrevRec(prevNode,prevNode)
+print('Prev2:',prevNode2.val)
 print()
 printout(root)
