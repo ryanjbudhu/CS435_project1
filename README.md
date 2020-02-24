@@ -37,7 +37,7 @@
 			```
 	- iv. 
 	- v. I use a max/min integer to check the minimum and maximum of the tree. Input must be greater than/less than for algorithm to work.
-	- vi. ``recusiveTree.py``
+	- vi. ``recursiveTree.py``
 	- vii. Use a different way of comparing for max and min in the tree.
   + d) [iterativeTree.py ✓]
 	- i. Create functions of a Binary Search Tree that implement the algorithms iteravely.
