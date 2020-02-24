@@ -83,6 +83,7 @@ def findMaxIter(root):
 		cur = cur.right
 	return cur
 
+#To pretty print the tree
 def printout(root):
 	if root == None:
 		return
@@ -90,16 +91,14 @@ def printout(root):
 	print(root.val)
 	printout(root.right)
 
+#Create and build tree
 arr = getRandArray(10)
 root = Node(arr[0], None)
 for i in arr[1:]:
 	insertIter(root, i)
 
+#Test the functions
 print(arr)
-printout(root)
-print()
-deleteIter(root, root.left.val)
-printout(root)
 print('Root:',root.val)
 maxNode = findMaxIter(root)
 minNode = findMinIter(root)
