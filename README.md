@@ -62,7 +62,7 @@
 	
 ### 2. Sort it!
   - 0005, 0006, 0007, 0010, 0011, 0012, 0016, 0017, 0018, 0019, 0020
-  - Insert the values into the BST one at a time, then create an array of a breadth-first traversal of the BST and output the array.
+  - Insert the values into the BST one at a time, then create an array of a inorder traversal of the BST and output the array.
   - [BST.py ✓]
 	
 ### 3. Arrays of Integers
