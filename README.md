@@ -11,10 +11,10 @@
       * Worst case is when BST is a linked-list
     - ii. Delete –	O(n)
       * Worst case is when BST is a linked-list
-    - iii. Find-next –	O(1)
+    - iii. Find-next –	O(n)
       * Constant time with pointers that are saved (node.left, node.right)
-    - iv. Find-prev –	O(1)
-      * Constant time with pointer that is saved (node.parent)
+    - iv. Find-prev –	O(n)
+      * Must traverse 
     - v. Find-min –	O(n)
       * Must traverse to left most node
     - vi. Find-max –	O(n)
@@ -44,7 +44,7 @@
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
 		* Input:
-		``[6668, 8170, 4097, 2130, 4539, 3772, 482, 8277, 8952, 8451]``
+		  ``[6668, 8170, 4097, 2130, 4539, 3772, 482, 8277, 8952, 8451]``
 		  * Output:
 			```
 			Root: 6668
