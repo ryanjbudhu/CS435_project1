@@ -1,5 +1,5 @@
 # Ryan Budhu
-  ## Section 004
+  Section 004
 ---
 ### 1. Binary Search Tree
   + a) Properties of a BST.
