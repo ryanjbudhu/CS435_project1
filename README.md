@@ -44,7 +44,9 @@
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
 		* Input:
-		  ``[6668, 8170, 4097, 2130, 4539, 3772, 482, 8277, 8952, 8451]``
+			```
+		 	[6668, 8170, 4097, 2130, 4539, 3772, 482, 8277, 8952, 8451]
+			```
 		  * Output:
 			```
 			Root: 6668
