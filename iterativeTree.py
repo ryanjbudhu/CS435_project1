@@ -97,14 +97,16 @@ root = Node(arr[0], None)
 for i in arr[1:]:
 	insertIter(root, i)
 
-#Test the functions
-print(arr)
-print('Root:',root.val)
-maxNode = findMaxIter(root)
-minNode = findMinIter(root)
-print('Max:',maxNode.val)
-print('Min:',minNode.val)
-print('Next:',findNextIter(minNode).val)
-print('Prev:',findPrevIter(maxNode).val)
-print()
-printout(root)
+def test():
+	#Test the functions
+	print(arr)
+	print('Root:',root.val)
+	maxNode = findMaxIter(root)
+	minNode = findMinIter(root)
+	print('Max:',maxNode.val)
+	print('Min:',minNode.val)
+	print('Next:',findNextIter(minNode).val)
+	print('Prev:',findPrevIter(maxNode).val)
+	print()
+	printout(root)
+#test()
