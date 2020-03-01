@@ -8,9 +8,9 @@ arr = getRandArray(10000)
 
 #BST
 startBST = time.time()
-root = Node(arr[0], None)
+rootBST = Node(arr[0], None)
 for i in arr[1:]:
-	insertIter(root, i)
+	insertIter(rootBST, i)
 endBST = time.time()
 timeBST = round(endBST - startBST, 6)
 print(timeBST)

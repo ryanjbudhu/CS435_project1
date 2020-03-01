@@ -92,14 +92,15 @@ def printout(root):
 	print(root.val)
 	printout(root.right)
 
-#Create and fill out the tree
-arr = getRandArray(10)
-root = Node(arr[0], None)
-for i in arr[1:]:
-	insertRec(root, Node(i))
 
-#Print out results of each function
 def test():
+	#Create and fill out the tree
+	arr = getRandArray(10)
+	root = Node(arr[0], None)
+	for i in arr[1:]:
+		insertRec(root, Node(i))
+
+	#Print out results of each function
 	print(arr)
 	print('Root:',root.val)
 	maxNode = findMaxRec(root)
