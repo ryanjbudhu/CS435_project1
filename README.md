@@ -130,7 +130,7 @@
 	- vi. ``iterativeAVL.py``
 	- vii. Use a different way of comparing for max and min in the tree.
 ### 5. Constructing Trees
-  + a) [``constructRecrusiveTrees.py`` ✓]
+  + a) [``constructRecrusiveTrees.py`` ✓](constructRecursiveTrees.py)
   + b) Issues
     * My program did not run into issues when running the program. An issue that may arise could possibly be a stack overflow error in the AVL tree because of the recursion that takes place.
   + c) [``constructIterativeTrees.py`` ✓]
