@@ -19,7 +19,7 @@
       * Must traverse to left most node
     - vi. Find-max –	O(n)
       * Must traverse to right most node
-  + c) [recursiveTree.py ✓]
+  + c) [``recursiveTree.py`` ✓]
     - i. Create functions of a Binary Search Tree that implement the algorithms recursively.
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
@@ -63,11 +63,11 @@
 ### 2. Sort it!
   - 0005, 0006, 0007, 0010, 0011, 0012, 0016, 0017, 0018, 0019, 0020
   - Insert the values into the BST one at a time, then create an array of a inorder traversal of the BST and output the array.
-  - [BST.py ✓]
+  - [``BST.py`` ✓]
 	
 ### 3. Arrays of Integers
-  - [getRandomArray.py ✓]
-  - [getSortedArray.py ✓]
+  - [``getRandomArray.py`` ✓]
+  - [``getSortedArray.py`` ✓]
 
 ### 4. Balanced Binary Trees
   + a) Properties of a BBST
@@ -89,7 +89,7 @@
 		* Tree is balanced
 	- vi. Find-max –	O(logn)
 		* Tree is balanced
-  + c) [recursiveAVL.py]
+  + c) [``recursiveAVL.py`` ✓]
     - i. Create functions of a Binary Search Tree that implement the algorithms recursively.
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
@@ -109,7 +109,7 @@
 	- v. I use a max/min integer to check the minimum and maximum of the tree. Input must be greater than/less than for algorithm to work.
 	- vi. ``recursiveAVL.py``
 	- vii. Use a different way of comparing for max and min in the tree.
-  + d) [iterativeAVL.py]
+  + d) [``iterativeAVL.py`` ✓]
 	- i. Create functions of a Binary Search Tree that implement the algorithms iteravely.
 	- ii. Input is valid and are integers, and integers are from range -999999 to 999999. There are also no duplicate numbers.
 	- iii. Test Cases
@@ -129,3 +129,9 @@
 	- v. I use a max/min integer to check the minimum and maximum of the tree. Input must be greater than/less than for algorithm to work.
 	- vi. ``iterativeAVL.py``
 	- vii. Use a different way of comparing for max and min in the tree.
+### 5. Constructing Trees
+  + a) [``constructRecrusiveTrees.py`` ✓]
+  + b) Issues
+    * My program did not run into issues when running the program. An issue that may arise could possibly be a stack overflow error in the AVL tree because of the recursion that takes place.
+  + c) [``constructIterativeTrees.py`` ✓]
+### 6. Compare Implementations
