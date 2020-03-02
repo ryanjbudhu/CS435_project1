@@ -8,6 +8,7 @@ class Node:
 		self.height = 1
 		
 def insertIter(root, val):
+	global count
 	newroot = root
 	if root is None:
 		root = Node(val)
@@ -22,6 +23,7 @@ def insertIter(root, val):
 					break
 				else:
 					cur = cur.right
+					count += 1
 
 			else:
 				if cur.left == None:
@@ -29,6 +31,7 @@ def insertIter(root, val):
 					break
 				else:
 					cur = cur.left
+					count += 1
 
 		#balance the tree
 		while cur != None:
@@ -59,7 +62,55 @@ def insertIter(root, val):
 
 
 def deleteIter():
-	pass
+	global count
+	if root == None:
+		return
+	cur = root
+	while cur != None:
+		if value < cur.val:
+			cur = cur.left
+		elif value > cur.val:
+			cur = cur.right
+			count += 1
+		else:
+			if cur.left == None:
+				tmp = cur.right
+				cur = None
+				continue
+			elif cur.right == None:
+				tmp = cur.right
+				cur = None
+				continue
+			tmp = findMinIter(cur.right)
+			cur.val = tmp.val
+			cur = cur.right
+			count += 1
+	
+	while cur != None:
+		cur.height = 1 + max(getAVLHeight(cur.left), getAVLHeight(cur.right))
+		balance = getBF(cur)
+		
+		#left-left
+		if balance > 1 and val < cur.left.val:
+			cur = rightRotate(cur)
+
+		# right-right 
+		elif balance < -1 and val > cur.right.val:
+			cur = leftRotate(cur)
+		
+		# left-right 
+		elif balance > 1 and val > cur.left.val:
+			cur.left = leftRotate(cur.left)
+			cur = rightRotate(cur)
+			
+		# right-left
+		elif balance < -1 and val < cur.right.val:
+			cur.right = rightRotate(cur.right)
+			cur = leftRotate(cur)
+		
+		newroot = cur
+		cur = cur.parent
+	return newroot
 
 def findMaxIter(root):
 	cur = root
@@ -74,7 +125,9 @@ def findMinIter(root):
 	return cur
 
 def findNextIter(node):
+	global count
 	if node.right != None:
+		count += 1
 		return findMinIter(node.right)
 	prnt = node.parent
 	while prnt != None:
@@ -84,7 +137,9 @@ def findNextIter(node):
 		prnt = prnt.parent
 	return prnt
 def findPrevIter(node):
+	global count
 	if node.left != None:
+		count += 1
 		return findMaxIter(node.left)
 	prnt = node.parent
 	while prnt != None:
@@ -159,7 +214,7 @@ def rightRotate(b):
 	a.height = max(getAVLHeight(a.left), getAVLHeight(a.right)) + 1
 	
 	return a
-
+count = 0
 def test():
 	#Create and build tree
 	arr = getRandArray(10,end=100)
@@ -178,4 +233,4 @@ def test():
 	print('Prev:',findPrevIter(maxNode).val)
 	print()
 	printout(root)
-#test()
+test()
