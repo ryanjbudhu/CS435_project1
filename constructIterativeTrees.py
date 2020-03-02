@@ -2,6 +2,8 @@ from getRandArray import getRandArray
 #BST
 from iterativeTree import printout, insertIter, Node#,findMinRec,findMaxRec
 #AVL
+from iterativeAVL import insertIter as insertIterAVL
+from iterativeAVL import Node as NodeAVL
 import time
 
 arr = getRandArray(10000)
@@ -13,12 +15,15 @@ for i in arr[1:]:
 	insertIter(rootBST, i)
 endBST = time.time()
 timeBST = round(endBST - startBST, 6)
-print(timeBST)
+print('BST:',timeBST)
 #printout(rootBST)
 
 #AVL
 startAVL = time.time()
-#[CODE]
+rootAVL = NodeAVL(arr[0])
+for i in arr[1:]:
+	insertIterAVL(rootAVL, i)
 endAVL = time.time()
 timeAVL = round(endAVL - startAVL, 6)
-print(timeAVL)
+print('AVL:',timeAVL)
+#printout(rootAVL)

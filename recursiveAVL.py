@@ -39,11 +39,73 @@ def insertRec(root,val):
 	
 	return root
 
+def deleteRec(root, val):
+	if root == None:
+		return root
+	if value < root.val:
+		root.left = deleteRec(root.left, value)
+	elif value > root.val:
+		root.right = deleteRec(root.right, value)
+	else:
+		if root.left == None:
+			tmp = root.right
+			root = None
+			return tmp
+
+		elif root.right == None:
+			tmp = root.left
+			root = None
+			return tmp
+
+		tmp = findMinRec(root.right)
+		root.val = tmp.val
+		root.right = deleteRec(root.right, tmp.val)
+	
+	root.height = 1 + max(getAVLHeight(root.left), getAVLHeight(root.right))
+	balance = getBF(root)
+
+	# lef-left
+	if balance > 1 and val < root.left.val:
+		return rightRotate(root)
+
+	# right-right 
+	if balance < -1 and val > root.right.val:
+		return leftRotate(root)
+	
+	# left-right 
+	if balance > 1 and val > root.left.val:
+		root.left = leftRotate(root.left)
+		return rightRotate(root)
+		
+	# right-left
+	if balance < -1 and val < root.right.val:
+		root.right = rightRotate(root.right)
+		return leftRotate(root)
+	
+	return root
+
+def isLeftChild(node):
+	return node.parent and node.parent.left == node
+
+def isRightChild(node):
+	return node.parent and node.parent.right == node
+
 def leftRotate(b):
 	a = b.right
-	tmp = a.left
+	b.right = a.left
+	if a.left != None:
+		a.left.parent = b
+	a.parent = b.parent
+	if b.parent is None:
+		root = a
+	else:
+		if isLeftChild(b):
+			b.parent.left = a
+		else:
+			b.parent.right = a
 	a.left = b
-	b.right = tmp
+	b.parent = a
+
 
 	b.height = max(getAVLHeight(b.left), getAVLHeight(b.right)) + 1
 	a.height = max(getAVLHeight(a.left), getAVLHeight(a.right)) + 1
@@ -52,10 +114,20 @@ def leftRotate(b):
 
 def rightRotate(b):
 	a = b.left
-	tmp = a.right
+	b.left = a.right
+	if a.right != None:
+		a.right.parent = b
+	a.parent = b.parent
+	if b.parent is None:
+		root = a
+	else:
+		if isRightChild(b):
+			b.parent.right = a
+		else:
+			b.parent.left = a
 	a.right = b
-	b.left = tmp
-
+	b.parent = a
+	
 	b.height = max(getAVLHeight(b.left), getAVLHeight(b.right)) + 1
 	a.height = max(getAVLHeight(a.left), getAVLHeight(a.right)) + 1
 	
@@ -105,7 +177,7 @@ def printout(root):
 	if root is None:
 		return
 	printout(root.left)
-	print(root.val, getBF(root))
+	print(root.val, root.height, getBF(root))
 	printout(root.right)
 
 def test():
@@ -122,4 +194,4 @@ def test():
 	print('Max:',maxNode.val)
 	print('Next:',findNextRec(minNode).val)
 	print('Prev:',findPrevRec(maxNode).val)
-test()
+#test()

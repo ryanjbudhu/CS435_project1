@@ -91,13 +91,14 @@ def printout(root):
 	print(root.val)
 	printout(root.right)
 
-#Create and build tree
-arr = getRandArray(10)
-root = Node(arr[0], None)
-for i in arr[1:]:
-	insertIter(root, i)
+
 
 def test():
+	#Create and build tree
+	arr = getRandArray(10)
+	root = Node(arr[0], None)
+	for i in arr[1:]:
+		insertIter(root, i)
 	#Test the functions
 	print(arr)
 	print('Root:',root.val)
