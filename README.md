@@ -139,11 +139,15 @@
     * [``iterativeAVL.py``](iterativeAVL.py)
     * [``iterativeTree.py``](iterativeTree.py)
   + b) Screenshots for Iterative solution
-    * **BST** ![BST image](docs/BSTIter.png)
-    * **AVL** ![AVL image](docs/AVLIter.png)
+    * **BST**  
+    ![BST image](docs/BSTIter.png)
+    * **AVL**  
+    ![AVL image](docs/AVLIter.png)
   + c) Screenshots for Recursive solution
-    * **BST** ![BST image](docs/BSTRec.png)
-	* **AVL** ![AVL image](docs/AVLRec.png)
+    * **BST**  
+	![BST image](docs/BSTRec.png)
+	* **AVL**  
+	![AVL image](docs/AVLRec.png)
 ### 7. Extra Credit
   + a) Timed constructs
     * Implemented in [``constructIterativeTrees.py``](constructIterativeTrees.py)
