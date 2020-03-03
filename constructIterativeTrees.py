@@ -1,9 +1,11 @@
 from getRandArray import getRandArray
 #BST
 from iterativeTree import printout, insertIter, Node#,findMinRec,findMaxRec
+from iterativeTree import count as countTree
 #AVL
 from iterativeAVL import insertIter as insertIterAVL
 from iterativeAVL import Node as NodeAVL
+from iterativeAVL import count as countAVL
 import time
 
 arr = getRandArray(10000)
@@ -16,6 +18,7 @@ for i in arr[1:]:
 endBST = time.time()
 timeBST = round(endBST - startBST, 6)
 print('BST:',timeBST)
+print('count:',countTree)
 #printout(rootBST)
 
 #AVL
@@ -26,4 +29,5 @@ for i in arr[1:]:
 endAVL = time.time()
 timeAVL = round(endAVL - startAVL, 6)
 print('AVL:',timeAVL)
+print('count:',countAVL)
 #printout(rootAVL)

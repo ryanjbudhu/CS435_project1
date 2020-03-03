@@ -113,15 +113,19 @@ def deleteIter():
 	return newroot
 
 def findMaxIter(root):
+	global count
 	cur = root
 	while cur.right != None:
 		cur = cur.right
+		count += 1
 	return cur
 
 def findMinIter(root):
+	global count
 	cur = root
 	while cur.left != None:
 		cur = cur.left
+		count += 1
 	return cur
 
 def findNextIter(node):
@@ -216,12 +220,13 @@ def rightRotate(b):
 	return a
 count = 0
 def test():
+	global count
 	#Create and build tree
-	arr = getRandArray(10,end=100)
+	arr = getRandArray(10)
 	root = Node(arr[0])
 	for i in arr[1:]:
 		root = insertIter(root, i)
-		
+	
 	#Test the functions
 	print(arr)
 	print('Root:',root.val)
@@ -232,5 +237,6 @@ def test():
 	print('Next:',findNextIter(minNode).val)
 	print('Prev:',findPrevIter(maxNode).val)
 	print()
-	printout(root)
+#	printout(root)
+	print('count:',count)
 test()
