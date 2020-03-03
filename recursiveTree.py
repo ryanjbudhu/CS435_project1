@@ -8,6 +8,7 @@ class Node:
 		self.parent = None
 
 def insertRec(root, node):
+	global count
 	if root is None:
 		root = node
 	else:
@@ -16,19 +17,24 @@ def insertRec(root, node):
 				root.right = node
 				root.right.parent = root
 			else:
+				count += 1
 				insertRec(root.right, node)
 		else:
 			if root.left == None:
 				root.left = node
 				root.left.parent = root
 			else:
+				count += 1
 				insertRec(root.left, node)
 def deleteRec(root, value):
+	global count
 	if root == None:
 		return root
 	if value < root.val:
+		count += 1
 		root.left = deleteRec(root.left, value)
 	elif value > root.val:
+		count += 1
 		root.right = deleteRec(root.right, value)
 	else:
 		if root.left == None:
@@ -43,6 +49,7 @@ def deleteRec(root, value):
 
 		tmp = findMinRec(root.right)
 		root.val = tmp.val
+		count += 1
 		root.right = deleteRec(root.right, tmp.val)
 	return root
 def findNextRec(start, node):
@@ -68,17 +75,21 @@ def findPrevRec(start, node):
 	return prnt
 	
 def findMinRec(root):
+	global count
 	if root==None:
 		return Node(MAXINT)
 	res = root
+	count += 1
 	newres = findMinRec(root.left)
 	if newres.val < res.val:
 		res = newres
 	return res
 def findMaxRec(root):
+	global count
 	if root==None:
 		return Node(-MAXINT)
 	res = root
+	count += 1
 	newres = findMaxRec(root.right)
 	if newres.val > res.val:
 		res = newres
@@ -92,16 +103,17 @@ def printout(root):
 	print(root.val)
 	printout(root.right)
 
-
+count = 0
 def test():
+	global count
 	#Create and fill out the tree
-	arr = getRandArray(10)
+	arr = getRandArray(10000)
 	root = Node(arr[0], None)
 	for i in arr[1:]:
 		insertRec(root, Node(i))
 
 	#Print out results of each function
-	print(arr)
+	#print(arr)
 	print('Root:',root.val)
 	maxNode = findMaxRec(root)
 	minNode = findMinRec(root)
@@ -116,6 +128,6 @@ def test():
 	prevNode2 = findPrevRec(prevNode,prevNode)
 	print('Prev2:',prevNode2.val)
 	print()
-	printout(root)
+	print('count:',count)
 
 #test()

@@ -9,11 +9,14 @@ class Node:
 		self.parent = parent
 
 def insertRec(root,val):
+	global count
 	if root is None:
 		return Node(val, root)
 	elif root.val > val:
+		count += 1
 		root.left = insertRec(root.left, val)
 	else:
+		count += 1
 		root.right = insertRec(root.right, val)
 	
 	root.height = 1 + max(getAVLHeight(root.left), getAVLHeight(root.right))
@@ -40,11 +43,14 @@ def insertRec(root,val):
 	return root
 
 def deleteRec(root, val):
+	global count
 	if root == None:
 		return root
 	if value < root.val:
+		count += 1
 		root.left = deleteRec(root.left, value)
 	elif value > root.val:
+		count += 1
 		root.right = deleteRec(root.right, value)
 	else:
 		if root.left == None:
@@ -59,6 +65,7 @@ def deleteRec(root, val):
 
 		tmp = findMinRec(root.right)
 		root.val = tmp.val
+		count += 1
 		root.right = deleteRec(root.right, tmp.val)
 	
 	root.height = 1 + max(getAVLHeight(root.left), getAVLHeight(root.right))
@@ -144,12 +151,16 @@ def getBF(root):
 	return getAVLHeight(root.left) - getAVLHeight(root.right)
 
 def findMinRec(root):
+	global count
 	if root is None or root.left is None:
 		return root
+	count += 1
 	return findMinRec(root.left)
 def findMaxRec(root):
+	global count
 	if root is None or root.right is None:
 		return root
+	count += 1
 	return findMaxRec(root.right)
 	
 def findPrevRec(node):
@@ -180,18 +191,23 @@ def printout(root):
 	print(root.val, root.height, getBF(root))
 	printout(root.right)
 
+count = 0
 def test():
-	arr = getRandArray(10)
-	print(arr)
+	global count
+	arr = getRandArray(10000)
+	#print(arr)
 	root = Node(arr[0])
 	for i in arr[1:]:
 		root = insertRec(root, i)
 
-	printout(root)		
+	#printout(root)		
 	minNode = findMinRec(root)
 	maxNode = findMaxRec(root)
+	print('Root:',root.val)
 	print('Min:',minNode.val)
 	print('Max:',maxNode.val)
 	print('Next:',findNextRec(minNode).val)
 	print('Prev:',findPrevRec(maxNode).val)
+	print()
+	print('count:',count)
 #test()

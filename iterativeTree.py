@@ -113,12 +113,12 @@ count = 0
 def test():
 	global count
 	#Create and build tree
-	arr = getRandArray(10)
+	arr = getRandArray(10000)
 	root = Node(arr[0], None)
 	for i in arr[1:]:
 		insertIter(root, i)
 	#Test the functions
-	print(arr)
+	#print(arr)
 	print('Root:',root.val)
 	maxNode = findMaxIter(root)
 	minNode = findMinIter(root)
@@ -129,4 +129,4 @@ def test():
 	print()
 #	printout(root)
 	print('count:',count)
-test()
+#test()
