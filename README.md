@@ -138,10 +138,12 @@
   + a) Modified files to add counter.
     * [``iterativeAVL.py``](iterativeAVL.py)
     * [``iterativeTree.py``](iterativeTree.py)
-  + b) Screenshots
-    * BST ![BST image](docs/BST.png)
-    * AVL ![AVL image](docs/AVL.png)
-		
+  + b) Screenshots for Iterative solution
+    * **BST** ![BST image](docs/BSTIter.png)
+    * **AVL** ![AVL image](docs/AVLIter.png)
+  + c) Screenshots for Recursive solution
+    * **BST** ![BST image](docs/BSTRec.png)
+	* **AVL** ![AVL image](docs/AVLRec.png)
 ### 7. Extra Credit
   + a) Timed constructs
     * Implemented in [``constructIterativeTrees.py``](constructIterativeTrees.py)
